@@ -15,13 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
         url(r'^admin/', admin.site.urls),
-        url(r'^rango/', include('rango.urls')),  #ADD THIS NEW TUPLE!
-]
+        url(r'^rango/', include('rango.urls')), 
+] 
 
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
- # Examples:
-    # url(r'^$', 'tango_with_django_project_17.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+    ##urlpatterns += patterns('django.views.static', (r'^media/(?P<path>.*)','serve', {'document_root': settings.MEDIA_ROOT}), )
