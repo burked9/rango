@@ -6,13 +6,49 @@
 
     <head>
         <title>Rango</title>
-        <link rel="stylesheet" href="{% static "css/base.css" %}" /> <!-- CSS -->
-        <script src="{% static "js/jquery.js" %}"></script> <!-- JavaScript -->
     </head>
 
     <body>
-        <h1>Including Static Media</h1>
-        <img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" /> <!-- Images -->
-    </body>
+        <h1>The Rango says...</h1>
+        
+        <div>
+            hey there partner!
+        </div>
+        
+        <h2>Most Liked Categories</h2>
+        <div>
+        {% if categories %}
+        <ul>
+            {% for category in categories %}
+            <li>
+            <a href="/rango/category/{{ category.slug }}">{{ category.name }}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <strong>There are no categories present.</strong>
+        {% endif %}
+        </div>
+        
+        <h3>Most Viewed Pages</h3>
+        <div>
+        {% if pages %}
+            <ul>
+                {% for page in pages %}
+                <li>
+                <a href="{{ page.url }}">{{ page.title }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There are no categories present. ##Error</strong>
+        {% endif %}
+        <div>   
 
+        <div>
+            <a href="/rango/add_category/">Add a New Category</a><br />
+            <a href="/rango/about/">About Rango</a><br />        
+  
+            <img src="{% static "images/77_2.jpg" %}" alt="Picture of Rango" /> 
+        
+        </div>
+    </body>
 </html>
