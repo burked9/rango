@@ -14,8 +14,7 @@ def index(request): #1
     return render(request, 'rango/index.html', context_dict)
 
 def about(request): #2
-    context_dict = {'boldmessage': "I am bold font from the context - New_view Excercise 5.6"}
-    return render(request, 'rango/about.html', context_dict)
+    return render(request, 'rango/about.html', {})
 
 @login_required
 def add_category(request): #3
@@ -116,7 +115,9 @@ def user_logout(request): #8
 
 @login_required
 def restricted(request): #9 -- Maybe be just a text test
-    return HttpResponse("Since you're logged in, you can see this text!")
+    context_dict = {}
+    return render(request, 'rango/restricted.html', context_dict)
+    
 
 '''
 def page(request, page_title): ## cancelled attempt at an excercise.

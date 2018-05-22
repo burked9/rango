@@ -1,17 +1,18 @@
 <!DOCTYPE html>
+{% extends "rango/base.html" %}
 {% load static %}
 {% load staticfiles %}
+
 <html>
+        
+    {% block body_block %}
 
-    {% block title_block %}
-		Index
-	{% endblock %}
+        <h2>Index - HomePage</h2>
 
-    <body>
         {% if user.is_authenticated %}
-        <h2>The Rango says...Oh Hey there logged in Partner :) {{ user.username }}!</h2>
+        <h4>The Rango says...Oh Hey there logged in Partner <strong>:)</strong> {{ user.username }}!</h4>
         {% else %}
-        <h2>The Rango says...Hello World!</h2>
+        <h4>The Rango says...Hello World!</h4>
         {% endif %}
 
         <h3>Most Liked Categories</h3>
@@ -19,8 +20,7 @@
         {% if categories %}
         <ul>
             {% for category in categories %}
-            <li>
-            <a href="/rango/category/{{ category.slug }}">{{ category.name }}</a></li>
+            <li><a href="{% url 'category' category.slug %}">{{ category.name }}</a></li>
             {% endfor %}
         </ul>
         {% else %}
@@ -44,23 +44,7 @@
          </p>
         </div>
 
-        <h4>Useful Links for U</h4>   
-        <div> <!-- Footer Notes and Links -->
-            {% if user.is_authenticated %}
-            <a href="/rango/restricted/">Restricted Page</a><br />
-            <a href="/rango/logout/">Logout</a><br />
-            <a href="/rango/add_category/">Add a New Category</a><br />
-            {% else %}
-            <a href="/rango/register/">Register Here</a><br /> 
-            <a href="/rango/login/">Login</a><br /> 
-            {% endif%}
-            
-            <a href="/rango/about/">About Rango</a><br /> 
-            <img src="{% static "images/77_2.jpg" %}" alt="Picture of Rango" /> 
-        
-        </div>
-    </body>
-
-
+        <img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" />
+    {% endblock %}
 
 </html>
