@@ -11,14 +11,8 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  
 TEMPLATE_PATH = os.path.join(BASE_DIR, 'tango_with_django_project/templates')
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'tango_with_django_project/templates'),)
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'tango_with_django_project/media') # Absolute path to the media directory
-##print ("MEDIA_ROOT" , MEDIA_ROOT)
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'e-1^a9slm&wvkkihn2-eg==&ybe!dw60ej_r^=rua#5rncb*89'
@@ -28,6 +22,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_URL = '/rango/login/'
 
 # Application definition
 

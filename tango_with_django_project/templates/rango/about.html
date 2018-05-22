@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-
 {% load static %}
 {% load staticfiles %}
 
 <html>
 
     <head>
-        <title>About Page Hopfully Worx</title>
+        <title>Rango - AboutPage</title>
         <link rel="stylesheet" href="{% static "css/base.css" %}" /> <!-- CSS -->
         <script src="{% static "js/jquery.js" %}"></script> <!-- JavaScript -->
     </head>
 
     <body>
-        <h1>Adding Barge Pictures is fun</h1>
-        <img src="{% static "images/77_2.jpg" %}" alt="Picture of Barge" /> <!-- Images -->
+        <h1>About Page with Sample Barge Photos</h1>
+
+        <a href="/rango/">Home</a><br />
+        
+        <img src="{% static "images/77_2.jpg" %}" alt="Picture of Barge" />
     </body>
 
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Rango</title>
+        <title>Rango - Category</title>
     </head>
 
     <body>
@@ -20,15 +20,21 @@
             The specified category {{ category_name }} does not exist!
         {% endif %}
 
-
-        <a href="/rango/add_category/">Add a New Category</a><br />
-
-        </div>
-        <div>
+        <h4>Useful Links for U</h4>   
+        <div> <!-- Footer Notes and Links -->
+            {% if user.is_authenticated %}
+            <a href="/rango/add_category/">Add a New Category</a><br />
                 {% if category %}
-                        <a href="/rango/category/{{category.slug}}/add_page/">Add Page</a> <br/>
+            <a href="/rango/category/{{category.slug}}/add_page/">Add Page</a> <br/>
                 {% endif %}
-                <a href="/rango/">Index</a><br />
+
+            {% else %}
+            
+            <a href="/rango/login/">Login</a><br /> 
+            {% endif%}
+            
+            <a href="/rango/">Index</a><br />
+        
         </div>
     </body>
 </html>
