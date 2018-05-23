@@ -22,18 +22,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LOGIN_URL = '/rango/login/'
-
 # Application definition
 
 INSTALLED_APPS = [
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rango',
+    'rango', 
 ]
 
 MIDDLEWARE = [
@@ -45,6 +44,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'tango_with_django_project.urls'
 
@@ -102,13 +102,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
@@ -118,3 +114,12 @@ USE_TZ = True
 STATIC_PATH = os.path.join(BASE_DIR, 'tango_with_django_project/static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (STATIC_PATH,)
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_AGE = 1209600
+
+REGISTRATION_OPEN = True # If True then users can register.
+ACCOUNT_ACTIVATION_DAYS = 7 # One-Week Activation for user trial
+REGISTRATION_AUTO_LOGIN = True # If true then the user will be auto logged in
+LOGIN_REDIRECT_URL = '/rango/' # The page for arrival after a successful login
+LOGIN_URL = '/accounts/login/' # The page users are directed to if not logged in, and are trying to access pages requiring authentication

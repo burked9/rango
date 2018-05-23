@@ -1,0 +1,13 @@
+{% extends "rango/base.html" %}
+
+
+{% block body_block %}
+
+<h2>Register Here Hey</h2>
+        <form method="post" action=".">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <input type="submit" value="Submit" />
+        </form>
+{% endblock %}

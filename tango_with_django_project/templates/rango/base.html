@@ -10,7 +10,7 @@
 
         <div>
         {% block body_block %}
-        This is body_block's default content.
+        This is body_block's default content. Whats going on
         {% endblock %}
         </div>
 
@@ -20,14 +20,15 @@
             <ul>    
             {% if user.is_authenticated %}
                 <li><a href="{% url 'restricted' %}">Restricted Page</a></li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <li><a href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
                 <li><a href="{% url 'add_category' %}">Add a New Category</a></li>
             {% else %}
-                <li><a href="{% url 'register' %}">Register Here</a></li>
-                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'registration_register' %}">Register Here</a></li>
+                <li><a href="{% url 'auth_login' %}">Login</a></li>
             {% endif %}
 
                 <li><a href="{% url 'about'%}">About</a></li>
+                <li><a href="{% url 'password_change' %}">Change Password</a></li>
                 <strong><li><a href="{% url 'index'%}">Homepage</a></li></strong>
             </ul>
         </div>
