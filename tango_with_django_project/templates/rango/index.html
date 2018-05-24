@@ -4,48 +4,44 @@
 {% load staticfiles %}
 
 <html>
+    {% block title %}Index - HomePage{% endblock %}
         
     {% block body_block %}
+    <div class="hero-unit">
+        <h2>Ready to Rango</h2>
+        <p>Find, Add, Share and Rango useful links and resources.</p>
+    </div>
 
-        <h2>Index - HomePage</h2>
-
-        {% if user.is_authenticated %}
-        <h4>The Rango says...Oh Hey there logged in Partner <strong>:)</strong> {{ user.username }}!</h4>
-        {% else %}
-        <h4>The Rango says...Hello World!</h4>
-        {% endif %}
-
-        <h3>Most Liked Categories</h3>
-        <div>
-        {% if categories %}
-        <ul>
-            {% for category in categories %}
-            <li><a href="{% url 'category' category.slug %}">{{ category.name }}</a></li>
-            {% endfor %}
-        </ul>
-        {% else %}
-            <strong>There are no categories present.</strong>
-        {% endif %}
-        </div>
-        
-        </div> <!-- This is not working but I think there is a section to come called Pill Badge which will fix -->
-        <div class="col-lg-6">
-            <h4>Most Viewed Pages</h4>
-            <p>
-            {% if pages %}
-            <ul class="list-group">
-            {% for page in pages %}
-            <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-            {% endfor %}
-             </ul>
+    <div class="row-fluid">
+        <div class="span6">
+            <h3>Top Five Categories</h3>
+            {% if categories %}
+            <ul>
+                {% for category in categories %}
+                <li><a href="{% url 'category' category.slug %}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
             {% else %}
-            <strong>There are no categories present.</strong>
-         {% endif %}
-         </p>
+            <strong>No categories at present.</strong>
+            {% endif %}
+
         </div>
 
-        <img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" />
-               
+        <div class="span6">
+            <h3>Top Five Pages</h3>
+            {% if pages %}
+            <ul>
+                {% for page in pages %}
+                <li><a href="{{ page.url }}">{{ page.title }}</a> - {{ page.category }} ({{ page.views }} view(s))</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <strong>No pages at present.</strong>
+            {% endif %}
+
+        </div>
+    </div>
+    
     {% endblock %}
 
 </html>

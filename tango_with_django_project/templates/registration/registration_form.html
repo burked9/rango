@@ -1,13 +1,36 @@
+<!DOCTYPE html>
 {% extends "rango/base.html" %}
+{% load bootstrap3 %}
 
+{% block title %}Add Category{% endblock %}
 
+<html>
 {% block body_block %}
-
-<h2>Register Here Hey</h2>
-        <form method="post" action=".">
+<form role="form" method="post" action=".">
                 {% csrf_token %}
-                {{ form.as_p }}
+<h2 class="form-signin-heading">Sign up Here</h2>
+                                
+<div class="form-group" >
+ <p class="required"><label for="id_username">Username:</label>
+    <input class="form-control" id="id_username" maxlength="30" name="username" type="text" placeholder="Enter username"/></p>
+</div>
+ <div class="form-group">
+   <p class="required"><label for="id_email">E-mail:</label>
+      <input class="form-control" id="id_email" name="email" type="email" placeholder="Enter email" /></p>
+ </div> 
+ <div class="form-group">
+   <p class="required"><label for="id_password1">Password:</label>
+      <input class="form-control" id="id_password1" name="password1" type="password" placeholder="Enter password" /></p>
+</div>
+ <div class="form-group">
+   <p class="required"><label for="id_password2">Password (again):</label>
+     <input class="form-control" id="id_password2" name="password2" type="password" placeholder="Enter password again" /></p>
+</div>
 
-                <input type="submit" value="Submit" />
-        </form>
+<button type="submit" class="btn btn-success">Submit</button>
+
+</form>
+
 {% endblock %}
+
+</html>

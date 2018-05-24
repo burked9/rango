@@ -3,19 +3,16 @@
 {% load static %}
 {% load staticfiles %}
 
+{% block title %}About{% endblock %}
+
 <html>
+{% block body_block %}
+<div class="hero-unit">
+    <h2>About</h2> This is <strong>Rango's about page</strong>.<br/>
+
+    <p> You've Visited the Site on : <strong>{{ visits }} occasion(s). </strong></p>
     
-
-    {% block body_block %}
-
-        <h2>You're at the About Page</h2>
-
-        <h4>Here's the barge</h4>
-    
-        <img src="{% static "images/77_2.jpg" %}" alt="Picture of Barge" />
-
-        <p> You Have Visited the Site : <strong>{{ visits }} times. </strong></p>
-    
-    {% endblock %}
+</div>
+{% endblock %}
 
 </html>
